@@ -105,7 +105,7 @@ namespace SharpXDecrypt
                     Array.Copy(data, 0, passData, 0, data.Length - 0x20);
                     byte[] decrypted = RC4.Decrypt(Key, passData);
                     password = Encoding.Default.GetString(decrypted);
-                }else if (xsh.version.StartsWith("7"))
+                }else if (xsh.version.StartsWith("7") || xsh.version.StartsWith("8"))
                 {
                     string strkey1 = new string(userSID.Name.ToCharArray().Reverse().ToArray()) + userSID.SID;
                     string strkey2 = new string(strkey1.ToCharArray().Reverse().ToArray());
